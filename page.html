@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pip-Boy STATUS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="page.css">
+
+</head>
+<body>
+
+<div class="scanlines"></div>
+
+<header>
+    <div class="logo">VAULT-TEC TERMINAL</div>
+</header>
+
+<main>
+
+    <!-- STATUS -->
+    <section class="status-section">
+        <h2>> STATUS DO PIP-BOY</h2>
+
+        <!-- GIF DO PIP-BOY -->
+    <div class="status-gif">
+        <img src="Vault2.gif" alt="Pip-Boy Animation">
+    </div>
+
+        <div class="bar">
+            <span>HP</span>
+            <div class="bar-fill" data-width="85%"></div>
+        </div>
+
+        <div class="bar">
+            <span>AP</span>
+            <div class="bar-fill" data-width="65%"></div>
+        </div>
+
+        <div class="bar">
+            <span>RAD</span>
+            <div class="bar-fill rad" data-width="30%"></div>
+        </div>
+
+    </section>
+
+    <!-- TERMINAL -->
+    <section class="terminal">
+        <h2>> LOG</h2>
+        <div class="terminal-box">
+            <p id="type-text"></p><span class="cursor">▌</span>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    SYSTEM ONLINE • VAULT-TEC INDUSTRIES
+</footer>
+
+<script>
+const text = `Inicializando sistema...
+Carregando dados do Vault 111...
+Status do mundo: Pós-Guerra Nuclear.
+Civilização fragmentada.
+Facções ativas detectadas.
+Exploração recomendada.
+Boa sorte, sobrevivente.`;
+
+const speed = 35;
+let i = 0;
+const target = document.getElementById("type-text");
+
+function typeWriter() {
+    if (i < text.length) {
+        target.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+window.onload = function() {
+    typeWriter();
+
+    // Animar barras
+    const bars = document.querySelectorAll(".bar-fill");
+    bars.forEach(bar => {
+        const width = bar.getAttribute("data-width");
+        setTimeout(() => {
+            bar.style.width = width;
+        }, 500);
+    });
+};
+</script>
+
+</body>
+</html>
+<!-- SEÇÃO ARQUIVOS / CONTEÚDO -->
+<section class="database-section">
+    <h2>> DATABASE</h2>
+
+    <div class="file-card">
+        <div class="file-text">
+            <h3>FACÇÃO: ENCLAVE</h3>
+            <p>
+                A Enclave é uma organização secreta militar com descendência direta dos antigos membros do governo dos EUA pré-guerra e do complexo industrial militar, afirmando serem os continuadores legais do Estado e mantendo-se como tal. A Enclave é composta em sua maioria de descendentes de funcionários do governo e oficiais militares com ligações com corporações poderosas que se retiraram para a plataforma de petróleo "Energia Poseidon" quando a Grande Guerra começou. Eles geralmente consideram que a maioria das pessoas nascidas fora do Enclave são "mutantes", que só servem para a irradiação.
+            </p>
+        </div>
+        <div class="file-image">
+            <img src="enclave.png" alt="NCR">
+        </div>
+    </div>
+
+  <div class="file-card reverse">
+    <div class="file-text">
+        <h3>FACÇÃO: IRMANDADE DO AÇO</h3>
+        <p>
+            A Irmandade do Aço é uma ordem militar tecnocrática dedicada à
+            preservação e controle de tecnologia avançada no mundo pós-guerra.
+            Sua estrutura é hierárquica, composta por Cavaleiros, Paladinos e Escribas.
+        </p>
+        <p>
+            Acreditando que o uso irresponsável da tecnologia levou à destruição
+            do mundo, a Irmandade assume a responsabilidade de recuperar,
+            estudar e restringir artefatos perigosos, muitas vezes entrando em
+            conflito com outras facções por esse controle.
+        </p>
+        <p>
+            Dependendo do capítulo regional, pode atuar de forma isolacionista
+            ou expansionista, mas sempre mantendo disciplina rígida e poder militar
+            altamente organizado.
+        </p>
+    </div>
+    <div class="file-image">
+        <img src="brother.jpg" alt="NCR">
+    </div>
+</div>
+<div class="file-card">
+    <div class="file-text">
+        <h3>FACÇÃO: NEW CALIFORNIA REPUBLIC (NCR)</h3>
+        <p>
+            A New California Republic representa uma das maiores tentativas
+            de reconstrução democrática após a Grande Guerra. Inspirada nos
+            antigos Estados Unidos, busca restaurar instituições civis,
+            infraestrutura e um sistema político organizado.
+        </p>
+        <p>
+            Sua expansão territorial é sustentada por forças militares
+            estruturadas, burocracia administrativa e uma economia em
+            crescimento. No entanto, a ampliação constante de fronteiras
+            gera desafios logísticos e conflitos internos.
+        </p>
+        <p>
+            No Mojave Wasteland, a NCR entra em confronto direto com
+            a Legião de César, simbolizando o embate entre democracia
+            republicana e autoritarismo militar.
+        </p>
+    </div>
+    <div class="file-image">
+        <img src="NCR.jpg" alt="NCR">
+    </div>
+</div>
+<div class="file-card reverse">
+    <div class="file-text">
+        <h3>FACÇÃO: LEGIÃO DE CÉSAR</h3>
+        <p>
+            A Legião de César é uma sociedade militarista fundada por
+            Edward Sallow, conhecido como Caesar. Inspirada na Roma Antiga,
+            sua estrutura baseia-se em disciplina absoluta, hierarquia rígida
+            e dominação territorial.
+        </p>
+        <p>
+            Rejeitando dependência tecnológica excessiva, a Legião valoriza
+            força física, obediência e tradição. Seus soldados são treinados
+            desde cedo para servir ao coletivo acima de qualquer interesse individual.
+        </p>
+        <p>
+            O confronto com a NCR no Mojave simboliza o choque entre
+            dois modelos de reconstrução: um baseado em instituições
+            republicanas e outro sustentado por autoridade central e poder militar.
+        </p>
+    </div>
+    <div class="file-image">
+        <img src="Leg.jpeg" alt="NCR">
+    </div>
+</div>
+<div class="file-card">
+    <div class="file-text">
+        <h3>FACÇÃO: COMMONWEALTH MINUTEMEN</h3>
+        <p>
+            Os Minutemen surgem como uma milícia cidadã no Commonwealth,
+            inspirados nos combatentes coloniais da história pré-guerra.
+            Sua principal missão é proteger assentamentos e promover
+            cooperação entre comunidades.
+        </p>
+        <p>
+            Diferente das grandes potências políticas, sua força está na
+            descentralização e na mobilização rápida para defender
+            sobreviventes contra invasores, saqueadores e ameaças mutantes.
+        </p>
+        <p>
+            Representam uma visão de reconstrução baseada em solidariedade
+            e ajuda mútua, priorizando estabilidade local em vez de
+            expansão territorial agressiva.
+        </p>
+    </div>
+    <div class="file-image">
+        <img src="minut.jpg" alt="NCR">
+    </div>
+</div>
+<div class="file-card">
+    <div class="file-text">
+        <h3>FACÇÃO: O INSTITUTO </h3>
+        <p>
+            No universo de Fallout 4, o Instituto é a organização científica mais avançada da Commonwealth. Escondido sob as ruínas do antigo Massachusetts Institute of Technology (CIT no jogo), ele opera em segredo desenvolvendo tecnologia de ponta, especialmente os sintéticos (androides praticamente indistinguíveis de humanos).
+        </p>
+        <p>
+            O Instituto acredita que está reconstruindo o futuro da humanidade por meio da ciência, mas suas ações como substituição de pessoas por sintéticos e experimentos questionáveis — geram medo e conflito com outras facções. Ele representa a visão de progresso tecnológico levado ao extremo, mesmo que isso custe ética e transparência.
+        </p>
+    </div>
+    <div class="file-image">
+        <img src="INT.png" alt="NCR">
+    </div>
+    
+    </section> <!-- fecha facções -->
+
+<section class="races-section">
+<h2 class="races-title">RAÇAS DO DESERTO</h2>
+
+<div class="races-wrapper">
+
+    <!-- GHOUL -->
+    <div class="race-box">
+        <div class="race-photo">
+            <img src="nec.jpeg" alt="Ghoul">
+        </div>
+
+        <h3>Ghouls</h3>
+        <p>Humanos alterados pela radiação. Alguns mantêm consciência, outros tornam-se ferais e extremamente agressivos.</p>
+
+        <div class="race-stats">
+            <p>Periculosidade</p>
+            <div class="race-bar"><div class="race-fill danger-3"></div></div>
+
+            <p>Inteligência</p>
+            <div class="race-bar"><div class="race-fill intel-4"></div></div>
+
+            <p>Classificação:BAIXA</p>
+        </div>
+    </div>
+
+    <!-- SINTÉTICOS -->
+    <div class="race-box">
+        <div class="race-photo">
+            <img src="syn.jpg" alt="Synth">
+        </div>
+
+        <h3>Sintéticos</h3>
+        <p>Androides criados pelo Instituto, capazes de imitar perfeitamente seres humanos.</p>
+
+        <div class="race-stats">
+            <p>Periculosidade</p>
+            <div class="race-bar"><div class="race-fill danger-4"></div></div>
+
+            <p>Inteligência</p>
+            <div class="race-bar"><div class="race-fill intel-5"></div></div>
+
+            <p>Classificação:MÉDIA</p>
+        </div>
+    </div>
+
+    <!-- SUPER MUTANTES -->
+    <div class="race-box">
+        <div class="race-photo">
+            <img src="super.jpg" alt="Super Mutant">
+        </div>
+
+        <h3>Super Mutantes</h3>
+        <p>Criaturas transformadas pelo FEV. Extremamente fortes, mas com inteligência reduzida.</p>
+
+        <div class="race-stats">
+            <p>Periculosidade</p>
+            <div class="race-bar"><div class="race-fill danger-5"></div></div>
+
+            <p>Inteligência</p>
+            <div class="race-bar"><div class="race-fill intel-2"></div></div>
+
+            <p>Classificação:ALTA</p>
+        </div>
+    </div>
+
+    <!-- DEATHCLAW -->
+    <div class="race-box">
+        <div class="race-photo">
+            <img src="claw.jpg" alt="Deathclaw">
+        </div>
+
+        <h3>Deathclaws</h3>
+        <p>Predadores letais criados antes da guerra. Extremamente rápidos, resistentes e mortais no combate corpo a corpo.</p>
+
+        <div class="race-stats">
+            <p>Periculosidade</p>
+            <div class="race-bar"><div class="race-fill danger-5"></div></div>
+
+            <p>Inteligência</p>
+            <div class="race-bar"><div class="race-fill intel-3"></div></div>
+
+            <p>Classificação:EXTREMA</p>
+        </div>
+    </div>
+<section>
+    <section class="cities-section">
+    <h2>> CIDADES PRINCIPAIS</h2>
+
+    <div class="file-card">
+        <div class="file-text">
+            <h3>DIAMOND CITY</h3>
+            <p>
+                Localizada nas ruínas de Boston, Diamond City foi construída dentro
+                de um antigo estádio de beisebol. Conhecida como a "Grande Joia do
+                Commonwealth", é o maior centro comercial e político da região.
+            </p>
+        </div>
+        <div class="file-image">
+            <img src="diamond.jpg" alt="Diamond City">
+        </div>
+    </div>
+
+    <div class="file-card reverse">
+        <div class="file-text">
+            <h3>SHADY SANDS</h3>
+            <p>
+                Primeira capital da New California Republic, Shady Sands
+                representa o início da reconstrução democrática pós-guerra.
+                Tornou-se símbolo de estabilidade e organização civil.
+            </p>
+        </div>
+        <div class="file-image">
+            <img src="shandy.jpg" alt="Shady Sands">
+        </div>
+    </div>
+
+    <div class="file-card">
+        <div class="file-text">
+            <h3>NEW VEGAS</h3>
+            <p>
+                Sobrevivendo quase intacta à Grande Guerra, New Vegas tornou-se
+                um centro estratégico de poder no Mojave Wasteland, controlada
+                por Mr. House e disputada pela NCR e pela Legião de César.
+            </p>
+        </div>
+        <div class="file-image">
+            <img src="new.jpeg" alt="New Vegas">
+        </div>
+    </div>
+</section>
+
+</section>
+</div>
+<section class="sagas">
+    <h2>> SAGAS</h2>
+    <div class="saga-options">
+        <a href="fallout.html" class="saga-card">Fallout Saga</a>
+        <a href="vaults.html" class="saga-card">
+    <h3>Vaults</h3>
+    <p>Experimentos secretos da Vault-Tec.</p>
+</a>
+</section>
+<section class="vault-end">
+
+    <div class="vault-gif">
+        <img src="walking.gif" alt="Vault Boy andando">
+    </div>
+
+    <div class="vault-message terminal-box">
+        <p>
+            Obrigado por acessar o Arquivo Oficial.
+            <br><br>
+            A Vault-Tec lembra:
+            <br>
+            Um futuro melhor começa dentro do Vault. Prepare-se e Obedeça.
+        </p>
+    </div>
+
+    <div class="vault-logo">
+        <img src="Vate.png" alt="Vault-Tec Logo">
+    </div>
+
+</section>
+
+
